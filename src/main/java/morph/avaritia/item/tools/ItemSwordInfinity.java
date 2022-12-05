@@ -30,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemSwordInfinity extends ItemSword implements ICosmicRenderItem, IModelRegister {
 
-    private static final ToolMaterial TOOL_MATERIAL = EnumHelper.addToolMaterial("INFINITY_SWORD", 32, 9999, 9999F, -3.0F, 200);
+    private static final ToolMaterial TOOL_MATERIAL = EnumHelper.addToolMaterial("INFINITY_SWORD", 256, 9999, 9999F, -2.0F, 400);
     //private IIcon cosmicMask;
     //private IIcon pommel;
 
@@ -49,7 +49,7 @@ public class ItemSwordInfinity extends ItemSword implements ICosmicRenderItem, I
         if (victim instanceof EntityPlayer) {
             EntityPlayer pvp = (EntityPlayer) victim;
             if (AvaritiaEventHandler.isInfinite(pvp)) {
-                victim.attackEntityFrom(new DamageSourceInfinitySword(player).setDamageBypassesArmor(), 4.0F);
+                victim.attackEntityFrom(new DamageSourceInfinitySword(player).setDamageBypassesArmor(), 4000.0F);
                 return true;
             }
             if (pvp.getHeldItem(EnumHand.MAIN_HAND) != null && pvp.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.infinity_sword && pvp.isHandActive()) {
@@ -57,7 +57,7 @@ public class ItemSwordInfinity extends ItemSword implements ICosmicRenderItem, I
             }
         }
 
-        victim.recentlyHit = 60;
+        victim.recentlyHit = 80;
         victim.getCombatTracker().trackDamage(new DamageSourceInfinitySword(player), victim.getHealth(), victim.getHealth());
         victim.setHealth(0);
         victim.onDeath(new EntityDamageSource("infinity", player));

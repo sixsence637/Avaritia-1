@@ -55,7 +55,7 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> list) {
         if (isInCreativeTab(tab)) {
             ItemStack pick = new ItemStack(this);
-            pick.addEnchantment(Enchantments.FORTUNE, 10);
+            pick.addEnchantment(Enchantments.FORTUNE, 20);
             list.add(pick);
         }
     }
@@ -75,7 +75,7 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
                 return efficiency;
             }
         }
-        return Math.max(super.getDestroySpeed(stack, state), 6.0F);
+        return Math.max(super.getDestroySpeed(stack, state), 60.0F);
     }
 
     //@SideOnly (Side.CLIENT)
@@ -111,7 +111,7 @@ public class ItemPickaxeInfinity extends ItemPickaxe {
                 stack.setTagCompound(tags);
             }
             if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FORTUNE, stack) < 10) {
-                stack.addEnchantment(Enchantments.FORTUNE, 10);
+                stack.addEnchantment(Enchantments.FORTUNE, 30);
             }
             tags.setBoolean("hammer", !tags.getBoolean("hammer"));
             player.swingArm(hand);

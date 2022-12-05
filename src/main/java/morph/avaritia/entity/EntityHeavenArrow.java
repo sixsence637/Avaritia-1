@@ -83,7 +83,7 @@ public class EntityHeavenArrow extends EntityArrow {
 
             EntityArrow arrow = new EntityHeavenSubArrow(world, x, y, z);
             arrow.shootingEntity = shootingEntity;
-            arrow.addVelocity(dx, -(randy.nextDouble() * 1.85 + 0.15), dz);
+            arrow.addVelocity(dx, -(randy.nextDouble() * 1.5 + 0.05), dz);
             arrow.setDamage(getDamage());
             arrow.setIsCritical(true);
             arrow.pickupStatus = pickupStatus;

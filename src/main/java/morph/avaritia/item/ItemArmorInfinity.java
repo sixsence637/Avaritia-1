@@ -29,7 +29,7 @@ import java.util.List;
 
 public class ItemArmorInfinity extends ItemArmor {
 
-    public static final ArmorMaterial infinite_armor = EnumHelper.addArmorMaterial("avaritia_infinity", "", 9999, new int[] { 6, 16, 12, 6 }, 1000, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
+    public static final ArmorMaterial infinite_armor = EnumHelper.addArmorMaterial("avaritia_infinity", "", 99999, new int[] { 16, 26, 22, 16 }, 12000, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 1.0F);
     public final EntityEquipmentSlot slot;
 
     public ItemArmorInfinity(EntityEquipmentSlot slot) {
@@ -56,10 +56,10 @@ public class ItemArmorInfinity extends ItemArmor {
             player.getFoodStats().addStats(20, 20F);
             PotionEffect nv = player.getActivePotionEffect(MobEffects.NIGHT_VISION);
             if(nv == null) {
-                nv = new PotionEffect(MobEffects.NIGHT_VISION, 300,  0, false, false);
+                nv = new PotionEffect(MobEffects.NIGHT_VISION, 600,  2, false, false);
                 player.addPotionEffect(nv);
             }
-            nv.duration = 300;
+            nv.duration = 600;
         } else if (armorType == EntityEquipmentSlot.CHEST) {
             player.capabilities.allowFlying = true;
             List<PotionEffect> effects = Lists.newArrayList(player.getActivePotionEffects());
@@ -95,7 +95,7 @@ public class ItemArmorInfinity extends ItemArmor {
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (slot == EntityEquipmentSlot.FEET) {
             tooltip.add("");
-            tooltip.add(TextFormatting.BLUE + "+" + TextFormatting.ITALIC + TextUtils.makeSANIC("SANIC") + TextFormatting.RESET + "" + TextFormatting.BLUE + "% Speed");
+            tooltip.add(TextFormatting.BLUE + "+" + TextFormatting.ITALIC + TextUtils.makeSANIC("SUPER SANIC") + TextFormatting.RESET + "" + TextFormatting.BLUE + "% Speed");
         }
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }

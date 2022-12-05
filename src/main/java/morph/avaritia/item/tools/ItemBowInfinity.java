@@ -44,7 +44,7 @@ public class ItemBowInfinity extends Item implements ICosmicRenderItem, IModelRe
 
     public ItemBowInfinity() {
         maxStackSize = 1;
-        setMaxDamage(9999);
+        setMaxDamage(99999);
         setCreativeTab(Avaritia.tab);
         setUnlocalizedName("avaritia:infinity_bow");
         setRegistryName("infinity_bow");
@@ -80,16 +80,16 @@ public class ItemBowInfinity extends Item implements ICosmicRenderItem, IModelRe
 
         EntityArrow arrow = new EntityHeavenArrow(world, player);
         arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0, f * 3.0F, 1.0F);//TODO, no inaccuracy?
-        arrow.setDamage(20.0);
+        arrow.setDamage(200000000000000.0);
 
-        if (f == 1.0F) {
+        if (f == 2.0F) {
             arrow.setIsCritical(true);
         }
 
         int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
 
         if (k > 0) {
-            arrow.setDamage(arrow.getDamage() + k + 1);
+            arrow.setDamage(arrow.getDamage() + k + 1000000);
         }
 
         int l = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
@@ -99,7 +99,7 @@ public class ItemBowInfinity extends Item implements ICosmicRenderItem, IModelRe
         }
 
         if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0) {
-            arrow.setFire(100);
+            arrow.setFire(100000);
         }
 
         stack.damageItem(1, player);
